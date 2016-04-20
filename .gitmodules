@@ -1,0 +1,3 @@
+[submodule "roles/java8-oracle"]
+	path = roles/java8-oracle
+	url = https://github.com/malk/ansible-java8-oracle.git

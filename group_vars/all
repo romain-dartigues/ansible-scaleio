@@ -18,3 +18,4 @@ scaleio_callhome_config:
     - { section: 'smtp', option: 'password', value: '' }
     - { section: 'email_alert', option: 'email_to', value: 'to@somewhere.com' }
     - { section: 'email_alert', option: 'severity', value: '' }
+

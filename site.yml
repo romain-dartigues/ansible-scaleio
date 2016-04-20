@@ -2,7 +2,7 @@
 ---
 - hosts: all
   name: "set up facts"
-  tags: common
+  tags: always
   tasks:
     - set_fact: scaleio_mdm_primary_ip="{{ hostvars[groups['mdm'][0]]['ansible_'+scaleio_interface]['ipv4']['address'] }}"
     - set_fact: scaleio_mdm_primary_hostname="{{ hostvars[groups['mdm'][0]]['inventory_hostname'] }}"

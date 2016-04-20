@@ -26,22 +26,23 @@
   run_once: true
   delegate_to: "{{ scaleio_mdm_primary_hostname }}"
   register: add_tb
-  changed_when: ("'single mode' not in add_tb.stderr") and ({{ scaleio_tb_secondary_ip }} is defined)
+  changed_when: ("'single mode' not in add_tb.stderr") and (scaleio_tb_secondary_ip is defined)
   ignore_errors: true
+  when: scaleio_tb_secondary_ip is defined
 
 
 - name: switch to cluster three node
   command: scli --switch_cluster_mode --cluster_mode "{{ scaleio_cluster_mode }}" --add_slave_mdm_ip  "{{ scaleio_mdm_secondary_ip }}" --add_tb_ip "{{ scaleio_tb_primary_ip }}"
   run_once: true
   delegate_to: "{{ scaleio_mdm_primary_hostname }}"
-  when: ("'single mode' not in add_tb.stderr") and  ("{{ scaleio_cluster_mode }}" == "3_node") 
+  when: ("'single mode' not in add_tb.stderr") and  ( scaleio_cluster_mode  == "3_node") 
 
 
 - name: switch to cluster five  node
   command: scli --switch_cluster_mode --cluster_mode "{{ scaleio_cluster_mode }}" --add_slave_mdm_ip  "{{ scaleio_mdm_secondary_ip }}","{{ scaleio_mdm_tertiary_ip }}" --add_tb_ip "{{ scaleio_tb_primary_ip }}","{{ scaleio_tb_secondary_ip }}"
   run_once: true
   delegate_to: "{{ scaleio_mdm_primary_hostname }}"
-  when: ("'single mode' not in add_tb.stderr") and  ("{{ scaleio_cluster_mode }}" == "5_node")
+  when: ("'single mode' not in add_tb.stderr") and ( scaleio_cluster_mode == "5_node")
 
 
 - name: create the protection domain

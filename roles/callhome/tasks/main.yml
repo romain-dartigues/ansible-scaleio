@@ -1,5 +1,3 @@
-- set_fact: file_glob_name=callhome
-
 - include: ../../install_scaleio.yml
 
 - ini_file: dest="{{callhome_conf_file}}"
