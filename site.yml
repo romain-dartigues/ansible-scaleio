@@ -57,11 +57,11 @@
     - sds
   tags: sds
 
-- hosts: callhome
-  name: "Configure callhome"
-  roles:
-    - callhome
-  tags: callhome
+#- hosts: callhome
+#  name: "Configure callhome"
+#  roles:
+#    - callhome
+#  tags: callhome
 
 - hosts: lia
   name: "Configure lia"
