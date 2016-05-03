@@ -1,5 +1,5 @@
 scaleio_license:
-scaleio_cluster_mode: "3_node"
+scaleio_cluster_mode: "5_node"
 scaleio_interface: eth1
 scaleio_protection_domain: protection_domain1
 scaleio_cluster_name: cluster1
@@ -7,6 +7,7 @@ scaleio_password: Cluster1!
 scaleio_gateway_admin_password: 'Cluster1!'
 scaleio_lia_token: 'Cluster1!'
 scaleio_storage_pool: pool1
+scaleio_sds_number: 0
 
 scaleio_callhome_config:
     - { section: 'general', option: 'email_from', value: 'from@somewhere.com' }
@@ -18,4 +19,3 @@ scaleio_callhome_config:
     - { section: 'smtp', option: 'password', value: '' }
     - { section: 'email_alert', option: 'email_to', value: 'to@somewhere.com' }
     - { section: 'email_alert', option: 'severity', value: '' }
-

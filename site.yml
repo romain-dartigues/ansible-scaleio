@@ -10,14 +10,15 @@
     - set_fact: scaleio_mdm_secondary_hostname="{{ hostvars[groups['mdm'][1]]['inventory_hostname'] }}"
     - set_fact: scaleio_mdm_tertiary_ip="{{ hostvars[groups['mdm'][2]]['ansible_'+scaleio_interface]['ipv4']['address'] }}"
       when: hostvars[groups['mdm'][2]] is defined
+
     - set_fact: scaleio_mdm_tertiary_hostname="{{ hostvars[groups['mdm'][2]]['inventory_hostname'] }}"
       when: hostvars[groups['mdm'][2]] is defined
 
     - set_fact: scaleio_tb_primary_ip="{{ hostvars[groups['tb'][0]]['ansible_'+scaleio_interface]['ipv4']['address'] }}"
-
     - set_fact: scaleio_tb_primary_hostname="{{ hostvars[groups['tb'][0]]['inventory_hostname'] }}"
     - set_fact: scaleio_tb_secondary_ip="{{ hostvars[groups['tb'][1]]['ansible_'+scaleio_interface]['ipv4']['address'] }}"
       when: hostvars[groups['tb'][1]] is defined
+
     - set_fact: scaleio_tb_secondary_hostname="{{ hostvars[groups['tb'][1]]['inventory_hostname'] }}"
       when: hostvars[groups['tb'][1]] is defined
 
@@ -39,11 +40,11 @@
     - tb
   tags: tb
 
-- hosts: gateway
-  name: "Configure Gateway"
-  roles:
-    - gateway
-  tags: gateway
+#- hosts: gateway
+#  name: "Configure Gateway"
+#  roles:
+#    - gateway
+#  tags: gateway
 
 - hosts: sds
   name: "Configure sds"
@@ -57,15 +58,13 @@
     - callhome
   tags: callhome
 
--
-  hosts: lia
+- hosts: lia
   name: "Configure lia"
   roles:
     - lia
   tags: lia
 
--
-  hosts: sdc
+- hosts: sdc
   name: "Configure sdc"
   roles:
     - sdc

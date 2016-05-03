@@ -8,7 +8,7 @@
     - "../files/*{{ file_glob_name }}*.tar"
   when: ansible_distribution == "Ubuntu"
 
-- name: siob_file 
+- name: siob_file
   find: paths="/var/tmp/" patterns="*{{ file_glob_name }}*.siob"
   register: siob_file
   when: ubuntu_tar_file|changed
@@ -22,7 +22,7 @@
 - name: copy deb file
   copy: src="{{ item }}" dest="/var/tmp" mode="0644"
   with_fileglob:
-    - "../files/*{{ file_glob_name }}*.deb"  
+    - "../files/*{{ file_glob_name }}*.deb"
   when: ubuntu_tar_file|skipped
 
 - name: list the deb file
