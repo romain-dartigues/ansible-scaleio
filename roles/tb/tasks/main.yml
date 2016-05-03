@@ -41,3 +41,11 @@
   register: add_pd
   changed_when: "'already exists' not in add_pd.stderr"
   ignore_errors: true
+
+- name: add storage pool
+  command: scli --mdm_ip {{ scaleio_mdm_ips }} --add_storage_pool --protection_domain_name {{ scaleio_protection_domain }} --storage_pool_name {{ scaleio_storage_pool }}
+  run_once: true
+  register: storage_pool_add
+  delegate_to: "{{ scaleio_mdm_primary_hostname }}"
+  changed_when: (storage_pool_add.rc == 7) or (storage_pool_add.rc == 0)
+  ignore_errors: yes

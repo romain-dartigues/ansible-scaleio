@@ -7,4 +7,4 @@ scaleio_password: Cluster1!
 scaleio_gateway_admin_password: 'Cluster1!'
 scaleio_lia_token: 'Cluster1!'
 scaleio_storage_pool: pool1
-scaleio_sds_number: 0
+scaleio_sds_number: 1
