@@ -1,2 +1,0 @@
-set_fact: file_glob_name="sdc1-"
-include: ../../install_scaleio.yml

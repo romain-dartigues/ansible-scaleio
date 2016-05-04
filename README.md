@@ -48,6 +48,7 @@ To install ansible-scaleio just clone the repo and see site.yml as a generic pla
 | `scaleio_cluster_mode` | Cluster mode, can be 3_node or 5_node |  `"5_node"` |
 | `scaleio_interface` | Interface for ScaleIO, used if you do use site.yml |  `eth1` |
 | `scaleio_password` | Password for the admin user |  `Cluster1!` |
+| `scaleio_common_file_install_file_location` | Where are the files that will need to be installed |  `../files` |
 | `scaleio_gateway_admin_password` | Admin password for the gateway |  `'Cluster1!'` |
 | `scaleio_gateway_user_properties_file` | Location of the properties file to manually set the password |  `'/opt/emc/scaleio/gateway/webapps/ROOT/WEB-INF/classes/gatewayUser.properties'`
 | `scaleio_lia_token` | Lia password for node management |  `'Cluster1!'` |

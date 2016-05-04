@@ -28,49 +28,49 @@
       when: scaleio_mdm_tertiary_ip is defined
 
 - hosts: all
-  name: "Install Common"
+  name: "Install ScaleIO Common"
   roles:
-    - common
-  tags: common
+    - scaleio_common
+  tags: scaleio_common
 
 - hosts: mdm
-  name: "Configure mdm"
+  name: "Install and configure ScaleIO MDM"
   roles:
-    - mdm
-  tags: mdm
+    - scaleio_mdm
+  tags: scaleio_mdm
 
 - hosts: tb
-  name: "Configure tb"
+  name: "Install and configure ScaleIO TB"
   roles:
-    - tb
-  tags: tb
+    - scaleio_tb
+  tags: scaleio_tb
 
 #- hosts: gateway
-#  name: "Configure Gateway"
+#  name: "Install and configure ScaleIO Gateway"
 #  roles:
-#    - gateway
-#  tags: gateway
+#    - scaleio_gateway
+#  tags: scaleio_gateway
 
 - hosts: sds
-  name: "Configure sds"
+  name: "Install and configure ScaleIO SDS"
   roles:
-    - sds
-  tags: sds
+    - scaleio_sds
+  tags: scaleio_sds
 
 - hosts: lia
-  name: "Configure lia"
+  name: "Install and configure ScaleIO LIA"
   roles:
-    - lia
-  tags: lia
+    - scaleio_lia
+  tags: scaleio_lia
 
 - hosts: sdc
-  name: "Configure sdc"
+  name: "Install and configure ScaleIO SDC"
   roles:
-    - sdc
-  tags: sdc
+    - scaleio_sdc
+  tags: scaleio_sdc
 
 - hosts: gui
-  name: "Configure gui"
+  name: "Install ScaleIO GUI"
   roles:
-    - gui
-  tags: gui
+    - scaleio_gui
+  tags: scaleio_gui
