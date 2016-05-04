@@ -1,3 +1,17 @@
+cc757ff file permission fixed
+9552389 Better installer support
+8d2d100 Updated pull request #11 from tmp_role_name to file_glob_name
+67aac49 Merge pull request #11 from mtannous/scaleio2.0
+c9818cd Delete install_scaleio_Centos.yml
+15d80a6 Delete Centos.yml
+b63f7d2 Fixed issues related to Scalio v2 with ansible
+fdc648a ScaleIO 2.0 mdm working
+528e836 First pass at Ubuntu and ScaleIO 2.0
+1e61caf Fixed #6
+5bcd298 merged some test changes
+0c0a2fe Test commit
+df05233 768mb seems enough
+e75c466 Overhauled vagrant
 f3229eb Using inventory_hostname for delegation if ansible host doesn't have access to scaleio network
 3f03126 Changed headnode to primary to be more inline with ScaleIO terminology
 428a831 Merge pull request #4 from wangzhizheng/master

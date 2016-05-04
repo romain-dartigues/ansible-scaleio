@@ -1,20 +1,31 @@
 scaleio_license:
-scaleio_interface: enp0s8
 scaleio_protection_domain: protection_domain1
-scaleio_cluster_mode: true
 scaleio_cluster_name: cluster1
-scaleio_password: Cluster1!
-scaleio_gateway_admin_password: 'Cluster1!'
-scaleio_lia_token: 'Cluster1!'
 scaleio_storage_pool: pool1
 
-scaleio_callhome_config:
-    - { section: 'general', option: 'email_from', value: 'from@somewhere.com' }
-    - { section: 'general', option: 'username', value: '' }
-    - { section: 'general', option: 'password', value: '' }
-    - { section: 'general', option: 'customer_name', value: 'somewhere' }
-    - { section: 'smtp', option: 'host', value: '127.0.0.1' }
-    - { section: 'smtp', option: 'username', value: '' }
-    - { section: 'smtp', option: 'password', value: '' }
-    - { section: 'email_alert', option: 'email_to', value: 'to@somewhere.com' }
-    - { section: 'email_alert', option: 'severity', value: '' }
+scaleio_cluster_mode: "5_node"
+
+scaleio_interface: eth1
+scaleio_password: Cluster1!
+
+scaleio_gateway_admin_password: 'Cluster1!'
+scaleio_gateway_user_properties_file: '/opt/emc/scaleio/gateway/webapps/ROOT/WEB-INF/classes/gatewayUser.properties'
+
+scaleio_lia_token: 'Cluster1!'
+scaleio_lia_conf_file: '/opt/emc/scaleio/lia/cfg/conf.txt'
+
+scaleio_sdc_driver_sync_repo_address: 'ftp://ftp.emc.com/'
+scaleio_sdc_driver_sync_repo_user: 'QNzgdxXix'
+scaleio_sdc_driver_sync_repo_password: 'Aw3wFAwAq3'
+scaleio_sdc_driver_sync_repo_local_dir: '/bin/emc/scaleio/scini_sync/driver_cache/'
+#scaleio_sdc_driver_sync_user_private_rsa_key_src: ''
+scaleio_sdc_driver_sync_user_private_rsa_key_dest: '/bin/emc/scaleio/scini_sync/scini_key'
+#scaleio_sdc_driver_sync_repo_public_rsa_key_src: ''
+scaleio_sdc_driver_sync_repo_public_rsa_key_dest: '/bin/emc/scaleio/scini_sync/scini_repo_key.pub'
+scaleio_sdc_driver_sync_module_sigcheck: 1
+scaleio_sdc_driver_sync_emc_public_gpg_key_src: ../../../files/RPM-GPG-KEY-ScaleIO_2.0.5014.0
+scaleio_sdc_driver_sync_emc_public_gpg_key_dest: '/bin/emc/scaleio/scini_sync/emc_key.pub'
+scaleio_sdc_driver_sync_sync_pattern: .*
+
+scaleio_sds_number: 1
+scaleio_sds_disks: { ansible_available_disks: ['/home/vagrant/scaleio1'] }
