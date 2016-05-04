@@ -1,7 +1,5 @@
-- set_fact: role_name=lia
-
 - include: ../../install_scaleio.yml
 
 - name: set the lia token
-  lineinfile: backup="yes" dest="{{ lia_conf_file }}" line="lia_token={{ scaleio_lia_token }}" regexp="^lia_token=.*$" state="present"
+  lineinfile: backup="yes" dest="{{ scaleio_lia_conf_file }}" line="lia_token={{ scaleio_lia_token }}" regexp="^lia_token=.*$" state="present"
   notify: restart lia

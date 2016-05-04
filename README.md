@@ -1,10 +1,10 @@
 ansible-scaleio
 ======================
-ansible-scaleio is a way to manage ScaleIO through [Ansible](http://www.ansible.com/home "Ansible").
+ansible-scaleio is a way to manage [ScaleIO](http://www.emc.com/storage/scaleio/index.htm "ScaleIO") through [Ansible](http://www.ansible.com/home "Ansible").
 
 ## Description
 
-ansible-scaleio let's you do the following with ansible (version 2 is supported) and scaleio:
+ansible-scaleio let's you do the following with Ansible (version 2 is supported) and ScaleIO:
 
 - Install ScaleIO
 
@@ -13,7 +13,7 @@ ansible-scaleio let's you do the following with ansible (version 2 is supported)
   - sds
   - tb
   - lia
-  - callhome
+  - callhome (for version 1.3x only)
   - gateway (to be used for API gateway mainly)
   - sdc
 
@@ -30,20 +30,40 @@ To install ansible-scaleio just clone the repo and see site.yml as a generic pla
 
 ## Role Variables
 
+ Some required variables are set in `site.yml` so please check then out, they mainly relates to your network setup and
+ node naming.
+
+ The variables below are defined in the `group_vars/all` file but could be specified in other yaml file and load at
+ run time.
 
 | Variable | Description | Default value |
 |----------|-------------|---------------|
-| `scaleio_license` | License file *not in use right now* | `""` | 
-| `scaleio_interface` | Backend Interface for scaleio | `"tinydns"` | 
-| `scaleio_protection_domain` | Primary protection domain | `"dnslog"` | 
-| `scaleio_cluster_mode` | Do we want a cluster | `"/var/db/tinydns"` | 
-| `scaleio_cluster_name` |  | `"data"` | 
-| `scaleio_password` | Destination of the data file | `"net_djbdns_tinydns_data_file_dest"` | 
-| `scaleio_gateway_admin_password` | IP Address to listen too | `"127.0.0.1"` | 
-| `scaleio_lia_token` | PID File for tinydns | `"/var/run/tinydns.pid"` | 
-| `scaleio_storage_pool` | Service name  | `"pkgsrc/tinydns"` | 
-| `scaleio_callhome_config` | bundle name | `"tinydns"` | 
- 
+| `scaleio_license:` | Not in use currently | `` |
+| `scaleio_protection_domain` | Protection domain name |  `protection_domain1` |
+| `scaleio_cluster_name` | Cluster name |  `cluster1` |
+| `scaleio_storage_pool` | Storage pool name |  `pool1` |
+| `scaleio_cluster_mode` | Cluster mode, can be 3_node or 5_node |  `"5_node"` |
+| `scaleio_interface` | Interface for ScaleIO, used if you do use site.yml |  `eth1` |
+| `scaleio_password` | Password for the admin user |  `Cluster1!` |
+| `scaleio_gateway_admin_password` | Admin password for the gateway |  `'Cluster1!'` |
+| `scaleio_gateway_user_properties_file` | Location of the properties file to manually set the password |  `'/opt/emc/scaleio/gateway/webapps/ROOT/WEB-INF/classes/gatewayUser.properties'`
+| `scaleio_lia_token` | Lia password for node management |  `'Cluster1!'` |
+| `scaleio_lia_conf_file` | Lia configuration file to set the password |  `'/opt/emc/scaleio/lia/cfg/conf.txt'` |
+| `scaleio_sdc_driver_sync_repo_address` | Repository address for the kernel modules |  `'ftp://ftp.emc.com/'` |
+| `scaleio_sdc_driver_sync_repo_user` | Username for the repository |  `'QNzgdxXix'` |
+| `scaleio_sdc_driver_sync_repo_password` | Password for the repository |  `'Aw3wFAwAq3'` |
+| `scaleio_sdc_driver_sync_repo_local_dir` | Local cache of the repository |  `'/bin/emc/scaleio/scini_sync/driver_cache/'` |
+| `scaleio_sdc_driver_sync_user_private_rsa_key_src` | Private ssh rsa key source (if using sftp protocol)|  `''` |
+| `scaleio_sdc_driver_sync_user_private_rsa_key_dest` | Private ssh rsa key destination |  `'/bin/emc/scaleio/scini_sync/scini_key'` |
+| `#scaleio_sdc_driver_sync_repo_public_rsa_key_src` | Public ssh rsa key source (if using sftp protocol)|  `''` |
+| `scaleio_sdc_driver_sync_repo_public_rsa_key_dest` | Private ssh rsa key destination |  `'/bin/emc/scaleio/scini_sync/scini_repo_key.pub'` |
+| `scaleio_sdc_driver_sync_module_sigcheck` | Do we check the signature |  `1` |
+| `scaleio_sdc_driver_sync_emc_public_gpg_key_src` | Where is the signature file |  `../../../files/RPM-GPG-KEY-ScaleIO_2.0.5014.0` |
+| `scaleio_sdc_driver_sync_emc_public_gpg_key_dest` | Where to put the signature file |  `'/bin/emc/scaleio/scini_sync/emc_key.pub'` |
+| `scaleio_sdc_driver_sync_sync_pattern` | Repo sync pattern |  `.*` |
+| `scaleio_sds_number` | Number of SDS to run on the sds's |  `1` |
+| `scaleio_sds_disks` | Disk to use, if this variable is not defined, the system will use `roles/sds/library/disk_facts.py`|  `{ ansible_available_disks: ['/home/vagrant/scaleio1'] }` |
+
 ## Usage Instructions
 
 Customize the roles and playbooks to your environment, you can use this to either to install ScaleIO or just enable the different modules on the nodes.
@@ -53,12 +73,12 @@ Customize the roles and playbooks to your environment, you can use this to eithe
 
 ## Future
 - Extend to do more special setup with cache
-- Clean up the code
+- Clean up the code (always more cleanup)
 - Upgrade between ScaleIO releases.
 
-
 ## Contribution
-Create a fork of the project into your own reposity. Make all your necessary changes and create a pull request with a description on what was added or removed and details explaining the changes in lines of code. If approved, project owners will merge it.
+
+Create a fork of the project into your own repository. Make all your necessary changes and create a pull request with a description on what was added or removed and details explaining the changes in lines of code. If approved, project owners will merge it.
 
 Licensing
 ---------

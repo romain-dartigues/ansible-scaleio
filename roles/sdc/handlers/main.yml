@@ -1,0 +1,2 @@
+- name: restart scini
+  service: name="scini" state="restarted"

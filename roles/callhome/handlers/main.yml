@@ -1,3 +1,0 @@
----
-- name: restart callhome
-  service: name="callhome" state="restarted"

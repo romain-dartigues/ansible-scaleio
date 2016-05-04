@@ -1,1 +1,2 @@
-lia_conf_file: '/opt/emc/scaleio/lia/cfg/conf.txt'
+node_is_manager: 0
+file_glob_name: lia
