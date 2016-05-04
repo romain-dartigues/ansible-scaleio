@@ -68,3 +68,9 @@
   roles:
     - sdc
   tags: sdc
+
+- hosts: gui
+  name: "Configure gui"
+  roles:
+    - gui
+  tags: gui

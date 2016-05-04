@@ -22,7 +22,7 @@ node4 ansible_ssh_host=127.0.0.1 ansible_ssh_port=2203 ansible_python_interprete
 [gateway]
 node2 ansible_ssh_host=127.0.0.1 ansible_ssh_port=2201 ansible_python_interpreter=/usr/bin/python
 
-[callhome]
+[gui]
 node0 ansible_ssh_host=127.0.0.1 ansible_ssh_port=2222 ansible_python_interpreter=/usr/bin/python
 
 [sdc]

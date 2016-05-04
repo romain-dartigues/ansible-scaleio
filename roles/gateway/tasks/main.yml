@@ -1,5 +1,5 @@
 ---
-- include: "install_java_{{ ansible_distribution }}.yml"
+- include: "../../install_java_{{ ansible_distribution }}.yml"
 
 
 - include: ../../install_scaleio.yml
