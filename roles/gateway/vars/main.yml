@@ -1,3 +1,2 @@
-gateway_user_properties_file: '/opt/emc/scaleio/gateway/webapps/ROOT/WEB-INF/classes/gatewayUser.properties'
 node_is_manager: 0
 file_glob_name: gateway
