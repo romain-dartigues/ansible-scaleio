@@ -67,6 +67,7 @@ To install ansible-scaleio just clone the repo and see site.yml as a generic pla
 | `scaleio_sdc_driver_sync_sync_pattern` | Repo sync pattern |  `.*` |
 | `scaleio_sds_number` | Number of SDS to run on the sds's |  `1` |
 | `scaleio_sds_disks` | Disk to use, if this variable is not defined, the system will use `roles/sds/library/disk_facts.py`|  `{ ansible_available_disks: ['/home/vagrant/scaleio1'] }` |
+| `scaleio_skip_java` | Skip Java installation for ScaleIO (assume it's on the system) | `false` |
 
 ## Usage Instructions
 
