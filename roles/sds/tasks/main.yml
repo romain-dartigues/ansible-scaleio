@@ -10,8 +10,8 @@
   register: disks
 
 - name: use local disk variable
-  when: sds_scaleio_disks
-  set_fact: disks="{{ sds_scaleio_disks }}"
+  when: scaleio_sds_disks
+  set_fact: disks="{{ scaleio_sds_disks }}"
 
 - name: login to mdm
   command: scli --login --mdm_ip {{ scaleio_mdm_ips }} --username admin --password "{{ scaleio_password }}"
