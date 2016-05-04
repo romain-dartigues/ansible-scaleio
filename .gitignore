@@ -1,2 +1,4 @@
-*.rpm
+files/*
+!files/README
 test/**/.vagrant/*
+site.retry
