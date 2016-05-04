@@ -1,3 +1,17 @@
+1f23591 Use v1.3 for ScaleIO 1.3x
+4cccac2 Removed left overs
+ef5edab Merge branch 'scaleio2.0'
+64c3349 Removed the java submodule
+272756d Updated the documentation
+007baa0 modified gitignore
+cf15e5b variable cleanup
+88df8fc multiple sds support and changed the storage pool configuration
+edb6c36 sdc updates the driver_sync.conf file now
+cd62453 Complete remove of callhome
+f30beb2 Removed callhome for 2.0
+2d19225 Using scaleio_mdm_ips instead of comma separated values
+2bf1c8f modified to make sure mdm is up before logging in
+b08aecb Should be working soon!!!
 cc757ff file permission fixed
 9552389 Better installer support
 8d2d100 Updated pull request #11 from tmp_role_name to file_glob_name
