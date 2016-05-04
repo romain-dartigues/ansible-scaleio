@@ -16,6 +16,7 @@ ansible-scaleio let's you do the following with Ansible (version 2 is supported)
   - callhome (for version 1.3x only)
   - gateway (to be used for API gateway mainly)
   - sdc
+  - gui
 
 - For the sds you can setup different type of storage.
 
