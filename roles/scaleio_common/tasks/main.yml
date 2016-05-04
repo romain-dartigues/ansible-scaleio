@@ -1,0 +1,8 @@
+---
+
+- name: include vars
+  include_vars: "../vars/{{ ansible_distribution }}.yml"
+
+- name: install required packages
+  package: name="{{ item }}" state=latest
+  with_items: "{{ scaleio_common_packages }}"
