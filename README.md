@@ -19,6 +19,8 @@ ansible-scaleio let's you do the following with Ansible (version 2 is supported)
 
 - For the sds you can setup different type of storage.
 
+Important: master is tracking with ScaleIO 2.0 and up, for ScaleIO 1.3x use tag v1.3 of this repository, no further development on the 1.3x version of ScaleIO will be performed.
+
 ## Installation
 
 To install ansible-scaleio just clone the repo and see site.yml as a generic playbook. If you are using Vagrant you can actually use the Vagrantfile in the appropriate tests folder to launch an environment to play with.
