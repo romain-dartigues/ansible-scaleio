@@ -5,7 +5,7 @@ changelog:
 	git log --oneline > Changelog.txt
 
 .PHONY:
-test-ubuntu-trusty:
+test-ubuntu-trusty: clean
 	cd test/ubuntu/14.04 && vagrant up && vagrant ssh-config > ssh-config
 	cd ../../
 	ansible-playbook $(ANSIBLE_FLAGS) \
@@ -16,7 +16,7 @@ test-ubuntu-trusty:
 	site.yml
 
 .PHONY:
-test-centos-7:
+test-centos-7: clean
 	cd test/centos/7 && vagrant up && vagrant ssh-config > ssh-config
 	cd ../../
 	ansible-playbook $(ANSIBLE_FLAGS) \
