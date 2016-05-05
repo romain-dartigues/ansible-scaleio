@@ -30,47 +30,47 @@
 - hosts: all
   name: "Install ScaleIO Common"
   roles:
-    - scaleio_common
-  tags: scaleio_common
+    - scaleio-common
+  tags: scaleio-common
 
 - hosts: mdm
   name: "Install and configure ScaleIO MDM"
   roles:
-    - scaleio_mdm
-  tags: scaleio_mdm
+    - scaleio-mdm
+  tags: scaleio-mdm
 
 - hosts: tb
   name: "Install and configure ScaleIO TB"
   roles:
-    - scaleio_tb
-  tags: scaleio_tb
+    - scaleio-tb
+  tags: scaleio-tb
 
 #- hosts: gateway
 #  name: "Install and configure ScaleIO Gateway"
 #  roles:
-#    - scaleio_gateway
-#  tags: scaleio_gateway
+#    - scaleio-gateway
+#  tags: scaleio-gateway
 
 - hosts: sds
   name: "Install and configure ScaleIO SDS"
   roles:
-    - scaleio_sds
-  tags: scaleio_sds
+    - scaleio-sds
+  tags: scaleio-sds
 
 - hosts: lia
   name: "Install and configure ScaleIO LIA"
   roles:
-    - scaleio_lia
-  tags: scaleio_lia
+    - scaleio-lia
+  tags: scaleio-lia
 
 - hosts: sdc
   name: "Install and configure ScaleIO SDC"
   roles:
-    - scaleio_sdc
-  tags: scaleio_sdc
+    - scaleio-sdc
+  tags: scaleio-sdc
 
 - hosts: gui
   name: "Install ScaleIO GUI"
   roles:
-    - scaleio_gui
-  tags: scaleio_gui
+    - scaleio-gui
+  tags: scaleio-gui
