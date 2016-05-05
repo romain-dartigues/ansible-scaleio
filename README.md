@@ -36,6 +36,20 @@ To install ansible-scaleio just clone the repo and see site.yml as a generic pla
  Some required variables are set in `site.yml` so please check then out, they mainly relates to your network setup and
  node naming.
 
+ | Variable | Description | Default value |
+ |----------|-------------|---------------|
+ | `scaleio_mdm_primary_ip` | Primary MDM IP addresses (can be comma separated)| `{{ hostvars[groups['mdm'][0]]['ansible_'+scaleio_interface]['ipv4']['address'] }}"` |
+ | `scaleio_mdm_primary_hostname`| Primary MDM hostname | `"{{ hostvars[groups['mdm'][0]]['inventory_hostname'] }}"` |
+ | `scaleio_mdm_secondary_ip` | Secondary MDM IP addresses (can be comma separated)| `{{ hostvars[groups['mdm'][1]]['ansible_'+scaleio_interface]['ipv4']['address'] }}"` |
+ | `scaleio_mdm_secondary_hostname`| Secondary MDM hostname | `"{{ hostvars[groups['mdm'][1]]['inventory_hostname'] }}"` |
+ | `scaleio_mdm_tertiary_ip` | Tertiary MDM IP addresses (can be comma separated), if 5_node mode| `{{ hostvars[groups['mdm'][2]]['ansible_'+scaleio_interface]['ipv4']['address'] }}"` |
+ | `scaleio_mdm_tertiary_hostname`| Tertiary MDM hostname | `"{{ hostvars[groups['mdm'][2]]['inventory_hostname'] }}"` |
+ | `scaleio_tb_primary_ip` | Primary TB IP addresses (can be comma separated)| `{{ hostvars[groups['tb'][0]]['ansible_'+scaleio_interface]['ipv4']['address'] }}"` |
+ | `scaleio_tb_primary_hostname`| Primary TB hostname | `"{{ hostvars[groups['tb'][0]]['inventory_hostname'] }}"` |
+ | `scaleio_tb_secondary_ip` | Secondary TB IP addresses (can be comma separated), if 5_node mode| `{{ hostvars[groups['tb'][1]]['ansible_'+scaleio_interface]['ipv4']['address'] }}"` |
+ | `scaleio_tb_secondary_hostname`| Secondary TB hostname | `"{{ hostvars[groups['tb'][1]]['inventory_hostname'] }}"` |
+ | `scaleio_mdm_ips`| List of MDM IP's, depends on 3_node or 5_node mode | `"{{ scaleio_mdm_secondary_ip }},{{scaleio_mdm_primary_ip}}"` or `{{ scaleio_mdm_secondary_ip }},{{scaleio_mdm_primary_ip}},{{scaleio_mdm_tertiary_ip}` |
+
  The variables below are defined in the `group_vars/all` file but could be specified in other yaml file and load at
  run time.
 
