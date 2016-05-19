@@ -9,17 +9,17 @@
   command: scli --add_standby_mdm --new_mdm_ip "{{ scaleio_tb_primary_ip }}"  --mdm_role tb
   run_once: true
   delegate_to: "{{ scaleio_mdm_primary_hostname }}"
-  register: add_tb
-  changed_when: "'single mode' not in add_tb.stderr"
-  ignore_errors: true
+  register: add_primary_tb
+  changed_when: ('single mode' not in add_primary_tb.stderr) or (add_primary_tb.rc == 0)
+  failed_when: add_primary_tb.rc == 1
 
 - name: add secondary tie breaker
   command: scli --add_standby_mdm --new_mdm_ip "{{ scaleio_tb_secondary_ip }}"  --mdm_role tb
   run_once: true
   delegate_to: "{{ scaleio_mdm_primary_hostname }}"
-  register: add_tb
-  changed_when: ("'single mode' not in add_tb.stderr") and (scaleio_tb_secondary_ip is defined)
-  ignore_errors: true
+  register: add_secondary_tb
+  changed_when: ('single mode' not in add_secondary_tb.stderr) or (add_secondary_tb.rc == 0)
+  failed_when: add_secondary_tb.rc == 1
   when: scaleio_tb_secondary_ip is defined
 
 - name: switch to cluster three node
@@ -40,7 +40,6 @@
   delegate_to: "{{ scaleio_mdm_primary_hostname }}"
   register: add_pd
   changed_when: "'already exists' not in add_pd.stderr"
-  ignore_errors: true
 
 - name: add storage pool
   command: scli --mdm_ip {{ scaleio_mdm_ips }} --add_storage_pool --protection_domain_name {{ scaleio_protection_domain }} --storage_pool_name {{ scaleio_storage_pool }}
@@ -48,4 +47,3 @@
   register: storage_pool_add
   delegate_to: "{{ scaleio_mdm_primary_hostname }}"
   changed_when: (storage_pool_add.rc == 7) or (storage_pool_add.rc == 0)
-  ignore_errors: yes
