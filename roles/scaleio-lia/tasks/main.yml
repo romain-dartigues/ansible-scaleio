@@ -1,5 +1,3 @@
-- include: ../../scaleio-common/tasks/install_scaleio.yml
+- set_fact: token="{{ scaleio_lia_token }}"
 
-- name: set the lia token
-  lineinfile: backup="yes" dest="{{ scaleio_lia_conf_file }}" line="lia_token={{ scaleio_lia_token }}" regexp="^lia_token=.*$" state="present"
-  notify: restart lia
+- include: ../../scaleio-common/tasks/install_scaleio.yml

@@ -27,6 +27,10 @@
     - set_fact: scaleio_mdm_ips="{{ scaleio_mdm_secondary_ip }},{{scaleio_mdm_primary_ip}},{{scaleio_mdm_tertiary_ip}}"
       when: scaleio_mdm_tertiary_ip is defined
 
+    - set_fact: scaleio_gateway_primary_ip='{{ hostvars[groups['gateway'][0]]['ansible_'+scaleio_interface]['ipv4']['address'] }}'
+    - set_fact: scaleio_gateway_secondary_ip='{{ hostvars[groups['gateway'][1]]['ansible_'+scaleio_interface]['ipv4']['address'] }}'
+      when: hostvars[groups['gateway'][1]] is defined
+
 - hosts: all
   name: "Install ScaleIO Common"
   roles:
@@ -45,11 +49,12 @@
     - scaleio-tb
   tags: scaleio-tb
 
-#- hosts: gateway
-#  name: "Install and configure ScaleIO Gateway"
-#  roles:
-#    - scaleio-gateway
-#  tags: scaleio-gateway
+- hosts: gateway
+  name: "Install and configure ScaleIO Gateway"
+  roles:
+    - scaleio-common
+    - scaleio-gateway
+  tags: scaleio-gateway
 
 - hosts: sds
   name: "Install and configure ScaleIO SDS"
