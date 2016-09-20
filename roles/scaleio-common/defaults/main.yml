@@ -1,3 +1,8 @@
 # Location of the files that will need to be installed
 scaleio_common_file_install_file_location: "../files/"
 scaleio_common_packages:
+scaleio_common_oracle_apt_repository: "ppa:webupd8team/java"
+scaleio_common_oracle_packages:
+- oracle-java8-installer
+- ca-certificates
+- oracle-java8-set-default

@@ -1,3 +1,34 @@
+f4f4296 Fixed typo
+b02e0f3 Merge pull request #19 from wangzhizheng/master
+a9e4475 edit some typo
+d940274 add the fault set setting
+499967b Making this build automatically
+d027ee1 Merge pull request #18 from wangzhizheng/master
+eef7ce0 find some issue when installing on CentOS
+0785b56 modified package for triton
+4153389 Unsafe but more flexible
+be4d8ae reverted 41ce6aa834e8905232b0ba60e76422cb28538b14
+af61e88 Merge branch 'master' of github.com:sperreault/ansible-scaleio
+c2dded1 Wrapper to fix gateway hang
+3711d98 Merge pull request #16 from ack/update
+41ce6aa gracefully recover from pre-registered tb
+be8a0ea upgrade gpgkey from 5014 to glob
+8fbc619 allow glob in gpg key location
+63d4151 Moving to triton instead of vagrant
+0b26ab3 More ram for tests
+8fb43f9 Fully testing
+8658510 Reverted mdm
+1a614e2 test with keepalived by default
+bf4b71b building the gateway
+bf8770f environment passing for ANSIBLE_FLAGS
+dc60c32 Jenkins build testing fix
+594bfee Parameterized default file location
+f1e8782 More cosmetic changes
+3eecdca fixed typo in the keepalived config
+39c819f Merge pull request #12 from sperreault/refactor
+32cba61 Keepalived implementation
+065db00 more error checking improvements
+f017103 Updated Changelog.txt
 5655b02 modified site.yml for the refactor
 2ed0e14 Refactored for future galaxy integration
 a60badc Added documentation about ip variables

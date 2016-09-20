@@ -12,3 +12,4 @@ scaleio_sdc_driver_sync_emc_public_gpg_key_dest: '/bin/emc/scaleio/scini_sync/em
 scaleio_sdc_driver_sync_sync_pattern: .*
 file_glob_name: sdc
 scaleio_role_environment:
+scaleio_sdc_ubuntu_kernel: 'linux-image-generic-lts-xenial'

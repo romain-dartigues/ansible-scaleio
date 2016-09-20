@@ -1,0 +1,27 @@
+---
+- name: provision VMs
+  hosts: all
+  connection: local
+  tasks:
+    - name: starting VMs
+      cs_instance:
+        name: "{{ inventory_hostname_short }}"
+        display_name: "{{ inventory_hostname }}"
+        template:  "{{ cs_template }}"
+        service_offering: "{{ cs_offering }}"
+        network: "{{ cs_network }}"
+        state: expunged
+        tags:
+          - {key: 'deployment', value: 'scaleio'}
+        api_region: cloudstack
+        disk_offering: "shared.xlarge"
+        disk_size: 400
+        force: True
+      register: vm
+
+    - name: Show the VM IP
+      debug:
+        msg: "VM {{ inventory_hostname }} {{ vm.default_ip }}"
+
+    - name: assing IP to the inventory
+      set_fact: ansible_ssh_host={{ vm.default_ip }}

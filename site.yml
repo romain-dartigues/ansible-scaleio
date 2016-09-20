@@ -1,4 +1,3 @@
-# vim:ft=ansible:
 ---
 - hosts: all
   name: "set up facts"
@@ -30,6 +29,12 @@
     - set_fact: scaleio_gateway_primary_ip='{{ hostvars[groups['gateway'][0]]['ansible_'+scaleio_interface]['ipv4']['address'] }}'
     - set_fact: scaleio_gateway_secondary_ip='{{ hostvars[groups['gateway'][1]]['ansible_'+scaleio_interface]['ipv4']['address'] }}'
       when: hostvars[groups['gateway'][1]] is defined
+
+- hosts: all
+  name: "configure nodes"
+  roles:
+    - configure-nodes
+  tags: configure-nodes
 
 - hosts: all
   name: "Install ScaleIO Common"

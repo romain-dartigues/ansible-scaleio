@@ -1,0 +1,21 @@
+---
+
+- name: format disk
+  command: mkfs.ext4 /dev/xvdb
+  args:
+    creates: /root/.fd
+
+- name: scaleio mount point
+  command: mkdir /mnt/scaleio1
+  args:
+    creates: /root/.md
+
+- name: mount data disk
+  command: mount /dev/xvdb /mnt/scaleio1
+  args:
+    creates: /root/.mp
+
+- shell: rmdir /opt && ln -s /var/opt /opt
+  args:
+    executable: /bin/bash
+
