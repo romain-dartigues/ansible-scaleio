@@ -1,21 +1,13 @@
 ---
 
-- name: format disk
-  command: mkfs.ext4 /dev/xvdb
-  args:
-    creates: /root/.fd
+- filesystem: fstype=ext4 dev=/dev/xvdb
 
 - name: scaleio mount point
-  command: mkdir /mnt/scaleio1
-  args:
-    creates: /root/.md
+  file: path=/mnt/scaleio1 state=directory
 
-- name: mount data disk
-  command: mount /dev/xvdb /mnt/scaleio1
-  args:
-    creates: /root/.mp
+- mount: name=/mnt/scaleio1 src=/dev/xvdb fstype=ext4 state=present
 
-- shell: rmdir /opt && ln -s /var/opt /opt
-  args:
-    executable: /bin/bash
+- name: delete a directory
+  file:  path=/opt state=absent
 
+- file: src=/var/opt dest=/opt state=link
