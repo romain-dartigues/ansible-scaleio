@@ -8,4 +8,4 @@ pushd terraform
 ./deploy_vpc.sh
 popd
 
-ansible-playbook -i hosts_cs site.yml --ask-pass
+ansible-playbook -i hosts site.yml --ask-pass
