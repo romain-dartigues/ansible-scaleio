@@ -1,5 +1,4 @@
-ansible-scaleio
-===============
+# ![](docs/_static/logo-32.png) ansible-scaleio
 
 ansible-scaleio is a way to manage
 [ScaleIO](http://www.emc.com/storage/scaleio/index.htm "ScaleIO") through
