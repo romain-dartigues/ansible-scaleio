@@ -1,0 +1,20 @@
+---
+cs_offering: "shared.medium"
+cs_template: "Ubuntu Trusty amd64 [2016-05-31] [Other PV]"
+cs_network: "VOS|3170|prod|back"
+
+scaleio_fault_set: ['fs1','fs2','fs3']
+scaleio_fault_sets:
+  - {fs: 'fs1', sds: 'sio1'}
+  - {fs: 'fs1', sds: 'sio2'}
+  - {fs: 'fs2', sds: 'sio3'}
+  - {fs: 'fs2', sds: 'sio4'}
+  - {fs: 'fs3', sds: 'sio5'}
+  - {fs: 'fs3', sds: 'sio6'}
+
+scaleio_cluster_mode: "5_node"
+
+scaleio_interface: eth0
+scaleio_password: Cluster1!
+
+scaleio_common_file_install_file_location: "/mnt/filer/TEMP/ScaleIO_2.0.0.2_Complete_Linux_SW_Download/ScaleIO_2.0.0.2_UBUNTU_14.04_Download"
